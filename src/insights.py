@@ -9,7 +9,7 @@ def get_unique_job_types(path: str) -> set:
         if linha['job_type'] != '':
             conjunto.add(linha['job_type'])
 
-    return type(conjunto)
+    return conjunto
 
     """Checks all different job types and returns a list of them
 
