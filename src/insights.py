@@ -1,7 +1,7 @@
 from jobs import read
 
 
-def get_unique_job_types(path):
+def get_unique_job_types(path: str) -> set:
     data = read(path)
     conjunto = set()
 
@@ -9,7 +9,7 @@ def get_unique_job_types(path):
         if linha['job_type'] != '':
             conjunto.add(linha['job_type'])
 
-    return conjunto
+    return type(conjunto)
 
     """Checks all different job types and returns a list of them
 
