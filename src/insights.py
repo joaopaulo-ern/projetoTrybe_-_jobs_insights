@@ -117,6 +117,14 @@ def get_max_salary(path):
 
 
 def get_min_salary(path):
+    data = read(path)
+    conjunto = set()
+
+    for linha in data:
+        if linha['min_salary'].isnumeric():
+            conjunto.add(int(linha['min_salary']))
+
+    return min(conjunto)
     """Get the minimum salary of all jobs
 
     Must call `read`
