@@ -146,6 +146,19 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
+    try:
+        minimo = job["min_salary"]
+        maximo = job["max_salary"]
+    except KeyError:
+        raise ValueError("Erro nas categorias informadas")
+    conjuto_tipos = set([type(minimo), type(maximo), type(salary)])
+    if type(salary) != int or len(conjuto_tipos) != 1:
+        raise ValueError("Algum elemento(min, max ou salary) não é inteiro")
+    elif minimo > maximo:
+        raise ValueError("Valor minimo maior que o máximo")
+    else:
+        return minimo <= salary <= maximo
+
     """Checks if a given salary is in the salary range of a given job
 
     Parameters
